@@ -154,6 +154,14 @@ public class DialogueSequenceCreatorWindow : EditorWindow
         {
             EditorGUILayout.HelpBox(_jsonPath, MessageType.None);
         }
+
+        if (string.IsNullOrEmpty(_jsonPath))
+            return;
+
+        if (GUILayout.Button("Update Dictionary Json Location", GUILayout.Height(30)))
+        {
+            UpdateDictionaryLocation();
+        }
     }
 
     // ----- Right: Sequence Preview (read-only) -----
@@ -212,6 +220,27 @@ public class DialogueSequenceCreatorWindow : EditorWindow
         catch (System.Exception ex)
         {
             Debug.LogError($"Failed to add line: {ex.Message}");
+        }
+    }
+
+    private void UpdateDictionaryLocation()
+    {
+        // Ask for a location the first time; afterwards, overwrite silently.
+        if (!string.IsNullOrEmpty(_jsonPath))
+        {
+            string suggested = Application.dataPath; // default into project
+            string picked = EditorUtility.OpenFilePanel(
+                "dialogue_en Dictionary JSON",
+                suggested,
+                "json");
+
+            if (string.IsNullOrEmpty(picked))
+                return;
+
+            _jsonPath = picked;
+            EditorPrefs.SetString(PrefsJsonPathKey, _jsonPath);
+            string json = File.ReadAllText(_jsonPath);
+            _dict.FromJson(json);
         }
     }
 
