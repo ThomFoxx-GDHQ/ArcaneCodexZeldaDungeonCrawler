@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3551642149051524504}
   - component: {fileID: 7529184999235905690}
   - component: {fileID: 8155247713545900174}
-  - component: {fileID: 5551683892225267990}
+  - component: {fileID: 8557476161903511877}
   m_Layer: 0
-  m_Name: NPC
+  m_Name: QuestShopNPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5551683892225267990
+--- !u!114 &8557476161903511877
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,11 +92,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1390936415112857865}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a413c7bfd28b4d4f8260fdbada7cb3f, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e504533b275c5f4682df6f7c3116109, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCBehavior
-  _speakerName: John
-  _portraitSprite: {fileID: 21300000, guid: 53d31eb7b3b55804bb87d0f08d58963a, type: 3}
+  m_EditorClassIdentifier: Assembly-CSharp::QuestNPCBehavior
+  _speakerName: Test
+  _portraitSprite: {fileID: 21300000, guid: 7c96056f6f4cf764492ec7e8c571a275, type: 3}
   _dialogueSequence: {fileID: 11400000, guid: c20aa33bccfcda64096cb405e2606fd5, type: 2}
 --- !u!1001 &6874782493379380898
 PrefabInstance:

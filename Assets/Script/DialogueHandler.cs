@@ -27,6 +27,9 @@ public class DialogueHandler : MonoBehaviour
     Coroutine _dialogueRoutine;
     bool _isDone = false;
 
+    public delegate void OnComplete();
+    public static event OnComplete OnDialogueComplete;
+
     private void OnEnable()
     {
         _input = new InputSystem_Actions();
@@ -116,7 +119,11 @@ public class DialogueHandler : MonoBehaviour
         _counter %= _sequence.dialogueIDs.Count;
         if (_counter == 0)
         {
-            _panel.transform.parent.gameObject.SetActive(false);
+            if (OnDialogueComplete != null)
+                OnDialogueComplete();
+            else
+                _panel.transform.parent.gameObject.SetActive(false);
+
             return;
         }
 
