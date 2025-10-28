@@ -1,24 +1,32 @@
 {
-    "entries": [
-        {
-            "id": 0,
-            "line": "WElcome to the Dungeon"
-        },
-        {
-            "id": 1,
-            "line": "My name is John"
-        },
-        {
-            "id": 2,
-            "line": "I will be your guide."
-        },
-        {
-            "id": 3,
-            "line": "Many have entered the Dungeon"
-        },
-        {
-            "id": 4,
-            "line": "But few have left it."
-        }
-    ]
+  "entries": [
+    {
+      "id": 0,
+      "line": "Missing Dialgoue!"
+    },
+    {
+      "id": 1,
+      "line": "WElcome to the Dungeon"
+    },
+    {
+      "id": 2,
+      "line": "My name is John"
+    },
+    {
+      "id": 3,
+      "line": "I will be your guide."
+    },
+    {
+      "id": 4,
+      "line": "Many have entered the Dungeon"
+    },
+    {
+      "id": 5,
+      "line": "But few have left it."
+    },
+    {
+      "id": 6,
+      "line": "Pay 5 Gold for a Sword."
+    }
+  ]
 }

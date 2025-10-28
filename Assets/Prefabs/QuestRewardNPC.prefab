@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8155247713545900174}
   - component: {fileID: 8557476161903511877}
   m_Layer: 0
-  m_Name: QuestShopNPC
+  m_Name: QuestRewardNPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,6 +98,13 @@ MonoBehaviour:
   _speakerName: Test
   _portraitSprite: {fileID: 21300000, guid: 7c96056f6f4cf764492ec7e8c571a275, type: 3}
   _dialogueSequence: {fileID: 11400000, guid: c20aa33bccfcda64096cb405e2606fd5, type: 2}
+  _questingItemID: 2
+  _questinItemAmount: 5
+  _questRewardID: 3
+  _questRewardAmount: 1
+  _questCompleteDialogueID: 6
+  _dropItemOnComplete: 1
+  _droppedItemed: {fileID: 4948551462157800161, guid: 0945f6f88ddf2a74d9feea4e0e12f083, type: 3}
 --- !u!1001 &6874782493379380898
 PrefabInstance:
   m_ObjectHideFlags: 0

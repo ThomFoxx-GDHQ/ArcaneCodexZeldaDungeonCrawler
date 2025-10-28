@@ -268,7 +268,7 @@ public class DialogueSequenceCreatorWindow : EditorWindow
         {
             string json = _dict.ToJson(prettyPrint: true);
             File.WriteAllText(_jsonPath, json);
-            EditorUtility.RevealInFinder(_jsonPath);
+            //EditorUtility.RevealInFinder(_jsonPath);
         }
         catch (System.Exception ex)
         {

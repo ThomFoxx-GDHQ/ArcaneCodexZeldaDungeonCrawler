@@ -117,7 +117,24 @@ public class PlayerMovement : MonoBehaviour
         _canAttack = true;
     }
 
-    private void OnControllerColliderHit(ControllerColliderHit hit)
+    /*private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.transform.TryGetComponent<ICollidable>(out ICollidable collidable))
+        {
+            if (_canBeHit)
+            {
+                collidable.OnCollide(this.transform);
+                _canBeHit = false;
+                _isKickedBack = true;
+                if (_kickbackRoutine == null)
+                    _kickbackRoutine = StartCoroutine(KickBackRoutine());
+                if (_invisibiltyRoutine == null)
+                    _invisibiltyRoutine = StartCoroutine(InvisibilityFramesRoutine());
+            }
+        }
+    }*/
+
+    private void OnTriggerEnter(Collider hit)
     {
         if (hit.transform.TryGetComponent<ICollidable>(out ICollidable collidable))
         {

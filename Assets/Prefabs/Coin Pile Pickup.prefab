@@ -80,6 +80,10 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0.025485456
       objectReference: {fileID: 0}
+    - target: {fileID: 8707166072143199296, guid: e6bc4114b8d53f24e9f713322ba8814a, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9018082908670578089, guid: e6bc4114b8d53f24e9f713322ba8814a, type: 3}
       propertyPath: m_Name
       value: Coin Pile Pickup

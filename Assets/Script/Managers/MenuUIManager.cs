@@ -15,10 +15,11 @@ public class MenuUIManager : MonoBehaviour
     private PlayerInformation _playerInformation;
     private InventoryManager _inventoryManager;
 
-    private void Awake()
+    private void Start()
     {
         _inventoryManager = FindFirstObjectByType<InventoryManager>();
         _playerInformation = FindFirstObjectByType<PlayerInformation>();
+        gameObject.SetActive(false);
     }
 
     private void OnEnable()
