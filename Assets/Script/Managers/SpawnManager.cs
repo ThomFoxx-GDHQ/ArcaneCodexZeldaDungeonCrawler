@@ -30,5 +30,5 @@ public class SpawnManager : MonoSingleton<SpawnManager>
             else
                 drop -= _lootDropRate[i];
         }
-    }
+    } 
 }

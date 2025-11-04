@@ -23,6 +23,8 @@ public class QuestManager : MonoSingleton<QuestManager>
 
     public void AddQuest(QuestObject questSO)
     {
+        if (_quests.Exists(q => q.SO == questSO)) return;
+
         var overlayObject = Instantiate(_questDisplayPrefab, _OverlayQuestPanel).GetComponent<QuestDisplayItem>();
         var menuObject = Instantiate(overlayObject, _MenuDisplayQuestPanel).GetComponent<QuestDisplayItem>();
 

@@ -23,6 +23,13 @@ public abstract class NPCAbstract : MonoBehaviour
         }
     }
 
+    public void SpawnAtPosition(GameObject go)
+    {
+        if (go == null) return;
+
+        Instantiate(go, transform.position, transform.rotation, transform.parent);
+    }
+
     private void OnDisable()
     {
         _input.Player.Interact.performed -= Interact_performed;

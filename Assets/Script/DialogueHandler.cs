@@ -51,6 +51,7 @@ public class DialogueHandler : MonoBehaviour
 
         _canAdvanceImage.enabled = false;
         _speed = _dialogueTypeSpeed;
+        _isDone = false;
     }
 
     private void Start()
@@ -60,8 +61,13 @@ public class DialogueHandler : MonoBehaviour
 
     private void Submit_performed(InputAction.CallbackContext obj)
     {
-        if (_dialogueRoutine == null)
-            AdvanceThroughSequence();     
+        if (_dialogueRoutine == null && _isDone == false)
+            AdvanceThroughSequence();
+        /*else if (_isDone == true)
+        {
+            _panel.SetActive(false);
+            _isDone = false;
+        }*/
     }
 
     private void SubmitHold_canceled(InputAction.CallbackContext obj)
@@ -120,7 +126,11 @@ public class DialogueHandler : MonoBehaviour
         if (_counter == 0)
         {
             if (OnDialogueComplete != null)
+            {
                 OnDialogueComplete();
+                _isDone = true; 
+                _panel.transform.parent.gameObject.SetActive(false);
+            }
             else
                 _panel.transform.parent.gameObject.SetActive(false);
 

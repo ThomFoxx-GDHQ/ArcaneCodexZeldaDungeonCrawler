@@ -24,5 +24,6 @@ public class QuestDisplayItem : MonoBehaviour
         _questObjective = objective;
         _questCount = count;
         _questCounter = counter;
+        UpdateText();
     }
 }

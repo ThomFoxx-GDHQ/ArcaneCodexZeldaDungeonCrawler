@@ -22,6 +22,7 @@ public class DungeonGenerator : MonoBehaviour
 
     private Vector2Int _falseRoom = new Vector2Int(-1, -1); //Subsitutes for null checks
 
+    [SerializeField] private Transform _rootObject;
     [SerializeField] private GameObject _roomObject;
     [SerializeField] private int _roomSize = 1;
 
@@ -227,7 +228,7 @@ public class DungeonGenerator : MonoBehaviour
 
             pos.x = room.X * _roomSize;
             pos.z = room.Y * _roomSize;
-            RoomController rc = Instantiate(_roomObject, pos, Quaternion.identity).GetComponent<RoomController>();
+            RoomController rc = Instantiate(_roomObject, pos, Quaternion.identity,_rootObject).GetComponent<RoomController>();
             rc.SetRoom(_roomGrid[room.X, room.Y]);
             _roomControllers.Add(rc);
         }
