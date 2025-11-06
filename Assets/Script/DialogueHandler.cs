@@ -7,7 +7,7 @@ using System.Collections;
 using System.Text;
 using System.Runtime.CompilerServices;
 
-public class DialogueHandler : MonoBehaviour
+public class DialogueHandler : MonoSingleton<DialogueHandler>
 {
     [SerializeField] GameObject _panel;
     [SerializeField] TMP_Text _text;
@@ -129,10 +129,10 @@ public class DialogueHandler : MonoBehaviour
             {
                 OnDialogueComplete();
                 _isDone = true; 
-                _panel.transform.parent.gameObject.SetActive(false);
+                //_panel.transform.parent.gameObject.SetActive(false);
             }
-            else
-                _panel.transform.parent.gameObject.SetActive(false);
+            //else
+                //_panel.transform.parent.gameObject.SetActive(false);
 
             return;
         }
@@ -155,5 +155,10 @@ public class DialogueHandler : MonoBehaviour
             _dialogueRoutine = null;
         }
 
+    }
+
+    public void ClearOnCompleteEvent()
+    {
+        OnDialogueComplete = null;
     }
 }

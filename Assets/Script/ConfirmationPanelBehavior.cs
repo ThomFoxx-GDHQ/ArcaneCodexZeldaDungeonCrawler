@@ -19,6 +19,6 @@ public class ConfirmationPanelBehavior : MonoBehaviour
         _confirmationButton.GetComponentInChildren<TMP_Text>(true).text = confirm;
         _cancelButton.GetComponentInChildren<TMP_Text>(true).text = cancel;
 
-        //Configure what confirmation button does
+        //Configure what confirmation button does (Taken Care of in QuestNPCBehavior)
     }
 }

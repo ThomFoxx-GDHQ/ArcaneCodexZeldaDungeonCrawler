@@ -18,6 +18,7 @@ public class CoinBehaviour : MonoBehaviour, ICollidable
         if (_isRandom)
             _coinAmount = Random.Range(_randomAmount.x, _randomAmount.y);
 
+        
     }
 
     public void OnCollide(Transform other)
@@ -29,6 +30,7 @@ public class CoinBehaviour : MonoBehaviour, ICollidable
                 _invManager.AddToInventory(_coinID, _coinAmount);
                 Debug.Log($"{_coinAmount} Coins Collected");
                 UIManager.Instance.UpdateCoins();
+                
             }
 
             if (transform.parent != null)

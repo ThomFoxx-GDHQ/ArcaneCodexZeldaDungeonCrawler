@@ -38,6 +38,11 @@ public class QuestManager : MonoSingleton<QuestManager>
         if (_quests.Count > 0)
             _OverlayQuestPanel.gameObject.SetActive(true);
     }
+
+    public void CheckQuestsForUpdate()
+    {
+        //To Be implemented
+    }
 }
 
 [System.Serializable]

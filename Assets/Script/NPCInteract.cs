@@ -10,8 +10,17 @@ public class NPCInteract : NPCAbstract
     {
         if (_canEngage)
         {
-            DialogueHandler.OnDialogueComplete += () => { _OnDialogueComplete.Invoke(); };
+            DialogueHandler.OnDialogueComplete += () => { 
+                _OnDialogueComplete.Invoke(); 
+                DialogueHandler.Instance.transform.parent.gameObject.SetActive(false);
+            };
             UIManager.Instance.StartDialogueSequence(_dialogueSequence, _speakerName, _portraitSprite);
         }
+    }
+
+    private void OnDisable()
+    {
+        _OnDialogueComplete.RemoveAllListeners();
+        FindFirstObjectByType<DialogueHandler>().ClearOnCompleteEvent();
     }
 }

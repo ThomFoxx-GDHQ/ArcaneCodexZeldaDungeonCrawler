@@ -43,6 +43,7 @@ public class QuestNPCBehavior : NPCAbstract
     {
         if (_canEngage)
         {
+            FindFirstObjectByType<DialogueHandler>().ClearOnCompleteEvent();
             DialogueHandler.OnDialogueComplete += DialogueHandler_OnDialogueComplete;
             UIManager.Instance.StartDialogueSequence(_dialogueSequence, _speakerName, _portraitSprite);
         }
@@ -54,7 +55,8 @@ public class QuestNPCBehavior : NPCAbstract
         _confirmationPanel.ActivatePanel(true);
         _confirmationPanel.transform.parent.gameObject.SetActive(true);
         string confirmationText = DialogueService.Instance.GetLine(_questCompleteDialogueID);
-        _confirmationPanelText.text = confirmationText;
+        //_confirmationPanelText.text = confirmationText;
+        _confirmationPanel.ConfigurePanel(confirmationText);
 
         if (_invManager.InventoryAmount(_questingItemID) >= _questinItemAmount)
         {
@@ -70,6 +72,9 @@ public class QuestNPCBehavior : NPCAbstract
     {
         _invManager.RemoveFromInventory(_questingItemID, _questinItemAmount);
         _invManager.AddToInventory(_questRewardID, _questRewardAmount);
+
+        if (_questingItemID == UIManager.Instance.CoinID || _questRewardID == UIManager.Instance.CoinID)
+            UIManager.Instance.UpdateCoins();
 
         _confirmationPanel.ActivatePanel(false);
         _confirmationPanel.transform.parent.gameObject.SetActive(false);

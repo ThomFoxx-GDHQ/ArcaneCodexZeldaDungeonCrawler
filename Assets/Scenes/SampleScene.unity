@@ -6985,6 +6985,7 @@ GameObject:
   - component: {fileID: 1537667357}
   - component: {fileID: 1537667358}
   - component: {fileID: 1537667359}
+  - component: {fileID: 1537667360}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -7120,6 +7121,36 @@ MonoBehaviour:
   _OverlayQuestPanel: {fileID: 1685505883}
   _MenuDisplayQuestPanel: {fileID: 186442401}
   _questDisplayPrefab: {fileID: 1646822389539831519, guid: 8cf82b3a17bebca4d940b3b0bc83b53d, type: 3}
+--- !u!114 &1537667360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537667351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalReceiver
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: d5a64a6f8994cd3499ded75b8bbada93, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1537667359}
+          m_TargetAssemblyTypeName: QuestManager, Assembly-CSharp
+          m_MethodName: CheckQuestsForUpdate
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1574582200
 GameObject:
   m_ObjectHideFlags: 0
@@ -10620,6 +10651,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3994576009446785047, guid: 93c5cd58cc4e8c049b9c3743ce3ea595, type: 3}
+      propertyPath: _OnDialogueComplete.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994576009446785047, guid: 93c5cd58cc4e8c049b9c3743ce3ea595, type: 3}
       propertyPath: _OnDialogueComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1537667359}
@@ -10632,11 +10667,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1274110572}
     - target: {fileID: 3994576009446785047, guid: 93c5cd58cc4e8c049b9c3743ce3ea595, type: 3}
+      propertyPath: _OnDialogueComplete.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 1274110572}
+    - target: {fileID: 3994576009446785047, guid: 93c5cd58cc4e8c049b9c3743ce3ea595, type: 3}
       propertyPath: _OnDialogueComplete.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3994576009446785047, guid: 93c5cd58cc4e8c049b9c3743ce3ea595, type: 3}
       propertyPath: _OnDialogueComplete.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994576009446785047, guid: 93c5cd58cc4e8c049b9c3743ce3ea595, type: 3}
+      propertyPath: _OnDialogueComplete.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3994576009446785047, guid: 93c5cd58cc4e8c049b9c3743ce3ea595, type: 3}
@@ -10652,6 +10695,10 @@ PrefabInstance:
       value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 3994576009446785047, guid: 93c5cd58cc4e8c049b9c3743ce3ea595, type: 3}
+      propertyPath: _OnDialogueComplete.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994576009446785047, guid: 93c5cd58cc4e8c049b9c3743ce3ea595, type: 3}
       propertyPath: _OnDialogueComplete.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: QuestManager, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -10661,6 +10708,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3994576009446785047, guid: 93c5cd58cc4e8c049b9c3743ce3ea595, type: 3}
       propertyPath: _OnDialogueComplete.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994576009446785047, guid: 93c5cd58cc4e8c049b9c3743ce3ea595, type: 3}
+      propertyPath: _OnDialogueComplete.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3994576009446785047, guid: 93c5cd58cc4e8c049b9c3743ce3ea595, type: 3}
@@ -10689,6 +10740,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3994576009446785047, guid: 93c5cd58cc4e8c049b9c3743ce3ea595, type: 3}
       propertyPath: _OnDialogueComplete.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994576009446785047, guid: 93c5cd58cc4e8c049b9c3743ce3ea595, type: 3}
+      propertyPath: _OnDialogueComplete.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8819904624662907767, guid: 93c5cd58cc4e8c049b9c3743ce3ea595, type: 3}

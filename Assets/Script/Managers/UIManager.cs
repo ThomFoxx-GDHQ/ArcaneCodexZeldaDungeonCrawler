@@ -16,6 +16,8 @@ public class UIManager : MonoSingleton<UIManager>
     [SerializeField] private TMP_Text _coinAmountText;
     [SerializeField] private Animator _coinAnim;
 
+    public int CoinID => _coinID;
+
     private void Start()
     {
         _healthUI = FindFirstObjectByType<HealthUI>();
