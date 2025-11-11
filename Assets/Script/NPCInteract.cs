@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
+[SelectionBase]
 public class NPCInteract : NPCAbstract
 {
     [SerializeField] UnityEvent _OnDialogueComplete;
@@ -22,5 +23,6 @@ public class NPCInteract : NPCAbstract
     {
         _OnDialogueComplete.RemoveAllListeners();
         FindFirstObjectByType<DialogueHandler>().ClearOnCompleteEvent();
+        _canEngage = false;
     }
 }

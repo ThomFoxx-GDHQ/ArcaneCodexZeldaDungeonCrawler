@@ -5,14 +5,16 @@ using UnityEngine.UI;
 
 public class QuestNPCBehavior : NPCAbstract
 {
-    ConfirmationPanelBehavior _confirmationPanel;
-    [SerializeField] int _questingItemID;
-    [SerializeField] int _questinItemAmount;
+    [Header("Quest Information")]
+    [SerializeField] QuestObject _questObjectSO;
     [SerializeField] int _questRewardID;
     [SerializeField] int _questRewardAmount;
     [SerializeField] int _questCompleteDialogueID;
     [SerializeField] bool _dropItemOnComplete;
     [SerializeField] GameObject _droppedItemed;
+    ConfirmationPanelBehavior _confirmationPanel;
+    int _questingItemID;
+    int _questinItemAmount;
 
     TMP_Text _confirmationPanelText;
     Button _confirmButton;
@@ -36,14 +38,21 @@ public class QuestNPCBehavior : NPCAbstract
         _confirmButton = _confirmationPanel.transform.GetChild(1).GetComponent<Button>();
         _invManager = FindFirstObjectByType<InventoryManager>();
 
-        Debug.Log("OnEnable Ran");
+        if (_questObjectSO != null)
+        {
+            _questingItemID = _questObjectSO.itemID;
+            _questinItemAmount = _questObjectSO.questCount;
+        }
+
+        //Debug.Log("OnEnable Ran");
     }
 
     public override void Interact_performed(InputAction.CallbackContext obj)
     {
         if (_canEngage)
         {
-            FindFirstObjectByType<DialogueHandler>().ClearOnCompleteEvent();
+            Debug.Log("Interacting");
+            DialogueHandler.Instance.ClearOnCompleteEvent();
             DialogueHandler.OnDialogueComplete += DialogueHandler_OnDialogueComplete;
             UIManager.Instance.StartDialogueSequence(_dialogueSequence, _speakerName, _portraitSprite);
         }
@@ -81,5 +90,8 @@ public class QuestNPCBehavior : NPCAbstract
         Transform dropPosition = FindFirstObjectByType<PlayerInformation>().transform;
 
         Instantiate(_droppedItemed, dropPosition.position, Quaternion.identity);
-    }
+
+        QuestManager.Instance.RemoveQuest(_questObjectSO);
+        QuestManager.Instance.CheckQuestsForUpdate(_questingItemID, -_questinItemAmount);
+    }    
 }

@@ -43,12 +43,15 @@ public class InventoryManager : MonoBehaviour
             Debug.LogWarning($"Item Id:{id} does not exist in Master Item List.");
             return;
         }
+
         if (_playerInventory.ContainsKey(id))
         {
             _playerInventory[id] += count;
         }
         else
             _playerInventory.Add(id, count);
+
+        QuestManager.Instance.CheckQuestsForUpdate(id, count);
     }
 
     public void RemoveFromInventory(int id, int count)

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class QuestManager : MonoSingleton<QuestManager>
@@ -13,7 +14,7 @@ public class QuestManager : MonoSingleton<QuestManager>
     [SerializeField] Transform _MenuDisplayQuestPanel;
     [SerializeField] GameObject _questDisplayPrefab;
 
-    private void Awake()
+    public override void Init()
     {
         if (_quests.Count > 0)
             _OverlayQuestPanel.gameObject.SetActive(true);
@@ -39,9 +40,36 @@ public class QuestManager : MonoSingleton<QuestManager>
             _OverlayQuestPanel.gameObject.SetActive(true);
     }
 
-    public void CheckQuestsForUpdate()
+    public void RemoveQuest(QuestObject questSO)
     {
-        //To Be implemented
+        var quest = _quests.FirstOrDefault(q => q.SO == questSO);
+        if (quest != null)
+        {
+            Destroy(quest.OverlayDisplayObject);
+            Destroy(quest.MenuDisplayObject);
+            _quests.Remove(quest);
+        }
+    }
+
+    public void CheckQuestsForUpdate(int id, int count)
+    {
+        foreach (var quest in _quests)
+        {
+            if(quest.SO.itemID == id)
+            {
+                quest.OverlayDisplayObject.GetComponent<QuestDisplayItem>().UpdateCount(count);
+                quest.MenuDisplayObject.GetComponent<QuestDisplayItem>().UpdateCount(count);
+            }
+        }
+
+        //Linq method
+        /*var quest1 = _quests.Where(s => s.SO.itemID == id);
+
+        foreach (var q in quest1)
+        {
+            q.OverlayDisplayObject.GetComponent<QuestDisplayItem>().UpdateCount(count);
+            q.MenuDisplayObject.GetComponent<QuestDisplayItem>().UpdateCount(count);
+        }*/
     }
 }
 

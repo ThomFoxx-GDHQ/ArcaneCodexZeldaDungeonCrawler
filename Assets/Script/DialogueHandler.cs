@@ -30,6 +30,11 @@ public class DialogueHandler : MonoSingleton<DialogueHandler>
     public delegate void OnComplete();
     public static event OnComplete OnDialogueComplete;
 
+    public override void Init()
+    {
+        transform.parent.gameObject.SetActive(false);
+    }
+
     private void OnEnable()
     {
         _input = new InputSystem_Actions();
