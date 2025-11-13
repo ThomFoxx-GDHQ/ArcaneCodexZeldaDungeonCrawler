@@ -148,11 +148,12 @@ public class DialogueHandler : MonoSingleton<DialogueHandler>
 
     private void OnDisable()
     {
-        _input.Dialogue.Disable();
+        _input?.Dialogue.Disable();
         //_input.Player.Enable();
         _text.text = string.Empty;
 
-        _input.Dialogue.Submit.performed -= Submit_performed;
+        if (_input != null)
+            _input.Dialogue.Submit.performed -= Submit_performed;
 
         if (_dialogueRoutine != null)
         {

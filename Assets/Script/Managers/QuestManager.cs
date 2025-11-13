@@ -10,24 +10,24 @@ public class QuestManager : MonoSingleton<QuestManager>
     //Track UI Elements
 
     private List<Quest> _quests = new List<Quest>();
-    [SerializeField] Transform _OverlayQuestPanel;
-    [SerializeField] Transform _MenuDisplayQuestPanel;
+    [SerializeField] Transform _overlayQuestPanel;
+    [SerializeField] Transform _menuDisplayQuestPanel;
     [SerializeField] GameObject _questDisplayPrefab;
 
     public override void Init()
     {
         if (_quests.Count > 0)
-            _OverlayQuestPanel.gameObject.SetActive(true);
+            _overlayQuestPanel.gameObject.SetActive(true);
         else
-            _OverlayQuestPanel.gameObject.SetActive(false);
+            _overlayQuestPanel.gameObject.SetActive(false);
     }
 
     public void AddQuest(QuestObject questSO)
     {
         if (_quests.Exists(q => q.SO == questSO)) return;
 
-        var overlayObject = Instantiate(_questDisplayPrefab, _OverlayQuestPanel).GetComponent<QuestDisplayItem>();
-        var menuObject = Instantiate(overlayObject, _MenuDisplayQuestPanel).GetComponent<QuestDisplayItem>();
+        var overlayObject = Instantiate(_questDisplayPrefab, _overlayQuestPanel).GetComponent<QuestDisplayItem>();
+        var menuObject = Instantiate(overlayObject, _menuDisplayQuestPanel).GetComponent<QuestDisplayItem>();
 
         overlayObject.AssignQuest(questSO.questObjective, questSO.questCount);
         menuObject.AssignQuest(questSO.questObjective, questSO.questCount);
@@ -37,7 +37,7 @@ public class QuestManager : MonoSingleton<QuestManager>
         _quests.Add(quest);
 
         if (_quests.Count > 0)
-            _OverlayQuestPanel.gameObject.SetActive(true);
+            _overlayQuestPanel.gameObject.SetActive(true);
     }
 
     public void RemoveQuest(QuestObject questSO)
@@ -49,6 +49,9 @@ public class QuestManager : MonoSingleton<QuestManager>
             Destroy(quest.MenuDisplayObject);
             _quests.Remove(quest);
         }
+
+        if (_quests.Count == 0)
+            _overlayQuestPanel?.gameObject.SetActive(false);
     }
 
     public void CheckQuestsForUpdate(int id, int count)

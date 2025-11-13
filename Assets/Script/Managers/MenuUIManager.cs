@@ -17,13 +17,14 @@ public class MenuUIManager : MonoBehaviour
 
     private void Start()
     {
-        _inventoryManager = FindFirstObjectByType<InventoryManager>();
-        _playerInformation = FindFirstObjectByType<PlayerInformation>();
         gameObject.SetActive(false);
     }
 
     private void OnEnable()
     {
+        _inventoryManager = FindFirstObjectByType<InventoryManager>();
+        _playerInformation = FindFirstObjectByType<PlayerInformation>();
+
         _healthText.SetText("{0}/{1} hp", _playerInformation.CurrentHealth, _playerInformation.MaxHealth);
         _coinText.SetText(_inventoryManager.InventoryAmount(_coinID).ToString());
         int hearts = _inventoryManager.InventoryAmount(_heartContainerID);
