@@ -1,21 +1,23 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Xml;
 
 public class ShopItemPanelUIController : MonoBehaviour
 {
     private int _itemID;
-    private Image _iconImage;
-    private TMP_Text _itemNameText;
-    private TMP_Text _availableText;
-    private TMP_Text _costText;
-    private TMP_Text _quantityText;
-    private Button _increaseQuantityButton;
-    private Button _decreaseQuantityButton;
+    [SerializeField] private Image _iconImage;
+    [SerializeField] private TMP_Text _itemNameText;
+    [SerializeField] private TMP_Text _availableText;
+    [SerializeField] private TMP_Text _costText;
+    [SerializeField] private TMP_Text _quantityText;
+    [SerializeField] private Button _increaseQuantityButton;
+    [SerializeField] private Button _decreaseQuantityButton;
     private int _available = 0;
     private int _cost = 0;
     private int _quantity = 0;
     [SerializeField] private Sprite _defaultIcon;
+    private Item _item;
 
     public void LoadPanel(int id, int available, int cost)
     {
@@ -23,17 +25,34 @@ public class ShopItemPanelUIController : MonoBehaviour
         _available = available;
         _cost = cost;
 
+        if (FindFirstObjectByType<InventoryManager>().MasterItemList.TryGetValue(_itemID, out _item))
+        {
+            _itemNameText.text = _item.name;
+            if (_item.icon != null)
+            {
+                _iconImage.sprite = _item.icon;
+            }
+            else
+                _iconImage.sprite = _defaultIcon;
+
+            if (cost == 0)
+                _cost = _item.value;
+        }
+        else Debug.LogError("Item not found or InventoryManager is Null", FindFirstObjectByType<InventoryManager>());
+
         _availableText.text = _available.ToString();
         _costText.text = _cost.ToString();
+        _quantityText.text = _quantity.ToString();
+    }
 
-        FindFirstObjectByType<InventoryManager>().MasterItemList.TryGetValue(_itemID, out Item item);
-
-        _itemNameText.text = item.name;
-        if (item.icon != null)
+    public void ChangePurchaseQuantity(int quantity)
+    {
+        if (_quantity <= _available && _quantity >= 0)
         {
-            _iconImage.sprite = item.icon;
+            _quantity += quantity;
+            if (_quantity < 0) _quantity = 0;
+            if (_quantity > _available) _quantity = _available;
         }
-        else
-            _iconImage.sprite = _defaultIcon;
+        _quantityText.text = _quantity.ToString();
     }
 }

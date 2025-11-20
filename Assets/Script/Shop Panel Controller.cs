@@ -7,6 +7,9 @@ public class ShopPanelController : MonoBehaviour
 {
     [SerializeField] private GameObject _shopItemPanelPrefab;
     [SerializeField] private int[] _shopItemIDs = new int[5];
+    [SerializeField] private int[] _shopItemQuantities = new int[5];
+    [SerializeField, Tooltip("0 = Default Value Otherwise Cost is Overrides")] 
+    private int[] _shopItemCosts = new int[5];
     [SerializeField] private Transform _itemPanel;
     [SerializeField] private TMP_Text _shopNameText;
     [SerializeField] private TMP_Text _totalAmountText;
@@ -35,10 +38,11 @@ public class ShopPanelController : MonoBehaviour
         }
 
         //Populate Shop Items
-        foreach (int itemID in _shopItemIDs)
+        for (int i = 0;  i < _shopItemIDs.Length; i++)
         {
-            if (itemID == 0) continue; // Skip empty slots
-            GameObject shopItemPanel = Instantiate(_shopItemPanelPrefab, _itemPanel);
+            if (_shopItemIDs[i] == 0) continue; // Skip empty slots
+            ShopItemPanelUIController shopItemPanel = Instantiate(_shopItemPanelPrefab, _itemPanel).GetComponent<ShopItemPanelUIController>();
+            shopItemPanel.LoadPanel(_shopItemIDs[i], _shopItemQuantities[i], _shopItemCosts[i]);
 
         }
     }

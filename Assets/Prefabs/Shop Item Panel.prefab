@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 30, y: 0}
-  m_SizeDelta: {x: 130, y: 20}
+  m_AnchoredPosition: {x: 44.868103, y: 0}
+  m_SizeDelta: {x: 252.4851, y: 20}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &4928787976130925357
 CanvasRenderer:
@@ -92,8 +92,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -171,8 +171,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -75, y: 0}
-  m_SizeDelta: {x: 15, y: 15}
+  m_AnchoredPosition: {x: -112.5, y: 0}
+  m_SizeDelta: {x: 25, y: 25}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &9166989800424557079
 CanvasRenderer:
@@ -255,7 +255,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7068679619324299109}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 200490484913138127}
+        m_TargetAssemblyTypeName: ShopItemPanelUIController, Assembly-CSharp
+        m_MethodName: ChangePurchaseQuantity
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &690324840261346732
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,7 +302,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 170, y: 0}
+  m_AnchoredPosition: {x: 356.2, y: 0}
   m_SizeDelta: {x: 30, y: 20}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &8172005084125596247
@@ -348,8 +360,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -426,7 +438,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 222.3, y: 0}
+  m_AnchoredPosition: {x: 438.9, y: 0}
   m_SizeDelta: {x: 30, y: 20}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &7673167625237241774
@@ -484,8 +496,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -562,8 +574,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 5, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
+  m_AnchoredPosition: {x: 10, y: 0}
+  m_SizeDelta: {x: 25, y: 25}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &809676187661760323
 CanvasRenderer:
@@ -638,8 +650,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: 0}
-  m_SizeDelta: {x: 15, y: 15}
+  m_AnchoredPosition: {x: -19.9, y: 0.7}
+  m_SizeDelta: {x: 25, y: 25}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &8034469088781609943
 CanvasRenderer:
@@ -722,7 +734,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1545865324209229779}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 200490484913138127}
+        m_TargetAssemblyTypeName: ShopItemPanelUIController, Assembly-CSharp
+        m_MethodName: ChangePurchaseQuantity
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5343827834525378794
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,7 +773,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5343827834525378794}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -766,7 +790,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 360, y: 25}
+  m_SizeDelta: {x: 632, y: 43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5796173476680399437
 CanvasRenderer:
@@ -818,7 +842,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e0498af0afb83e4895ea8411b3a7331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemPanelUIController
-  _defaultIcon: {fileID: 0}
+  _iconImage: {fileID: 7542506088870124289}
+  _itemNameText: {fileID: 3056538816397875588}
+  _availableText: {fileID: 4517977388479675972}
+  _costText: {fileID: 4956377729162566512}
+  _quantityText: {fileID: 2191328279599283846}
+  _increaseQuantityButton: {fileID: 2207813177720232947}
+  _decreaseQuantityButton: {fileID: 5633559829553494257}
+  _defaultIcon: {fileID: 21300000, guid: 8f0237240e9ab0249befb60b54a6e2b3, type: 3}
 --- !u!1 &7536374536752039745
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,7 +884,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -40, y: 0}
+  m_AnchoredPosition: {x: -64.8, y: 0}
   m_SizeDelta: {x: 30, y: 20}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &1089815455743024719
@@ -911,8 +942,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
