@@ -18,9 +18,11 @@ public class ShopItemPanelUIController : MonoBehaviour
     private int _quantity = 0;
     [SerializeField] private Sprite _defaultIcon;
     private Item _item;
+    private int _index;
 
-    public void LoadPanel(int id, int available, int cost)
+    public void LoadPanel(int id, int available, int cost, int index)
     {
+        _index = index;
         _itemID = id;
         _available = available;
         _cost = cost;
@@ -54,5 +56,6 @@ public class ShopItemPanelUIController : MonoBehaviour
             if (_quantity > _available) _quantity = _available;
         }
         _quantityText.text = _quantity.ToString();
+        GetComponentInParent<ShopPanelController>().UpdatePurchaseAmount(_index, _quantity);
     }
 }

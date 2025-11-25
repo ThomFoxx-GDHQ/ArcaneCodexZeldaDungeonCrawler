@@ -3853,6 +3853,17 @@ Transform:
   - {fileID: 1729187641}
   m_Father: {fileID: 1764842821}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &719552732 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2812120356285333532, guid: d9a84bc63914f16438229e68efb6399a, type: 3}
+  m_PrefabInstance: {fileID: 3772778838751789407}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e08ab676b1b65e44b3dbc677e9de37f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShopPanelController
 --- !u!1001 &746941777
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8729,7 +8740,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.99411, y: 1.9960938}
+  m_AnchoredPosition: {x: -2.9941406, y: 1.9960938}
   m_SizeDelta: {x: -561.9028, y: -127.7498}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1727558730
@@ -10675,33 +10686,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shop Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 2812120356285333532, guid: d9a84bc63914f16438229e68efb6399a, type: 3}
-      propertyPath: '_shopItemIDs.Array.data[0]'
+    - target: {fileID: 2412827170354226596, guid: d9a84bc63914f16438229e68efb6399a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641090748822349957, guid: d9a84bc63914f16438229e68efb6399a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2812120356285333532, guid: d9a84bc63914f16438229e68efb6399a, type: 3}
-      propertyPath: '_shopItemIDs.Array.data[1]'
+    - target: {fileID: 3641090748822349957, guid: d9a84bc63914f16438229e68efb6399a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2812120356285333532, guid: d9a84bc63914f16438229e68efb6399a, type: 3}
-      propertyPath: '_shopItemCosts.Array.data[0]'
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 2812120356285333532, guid: d9a84bc63914f16438229e68efb6399a, type: 3}
-      propertyPath: '_shopItemCosts.Array.data[1]'
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 2812120356285333532, guid: d9a84bc63914f16438229e68efb6399a, type: 3}
-      propertyPath: '_shopItemQuantities.Array.data[0]'
+    - target: {fileID: 3641090748822349957, guid: d9a84bc63914f16438229e68efb6399a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 719552732}
+    - target: {fileID: 3641090748822349957, guid: d9a84bc63914f16438229e68efb6399a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 2812120356285333532, guid: d9a84bc63914f16438229e68efb6399a, type: 3}
-      propertyPath: '_shopItemQuantities.Array.data[1]'
-      value: 5
+    - target: {fileID: 3641090748822349957, guid: d9a84bc63914f16438229e68efb6399a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MakePurchase
       objectReference: {fileID: 0}
-    - target: {fileID: 2812120356285333532, guid: d9a84bc63914f16438229e68efb6399a, type: 3}
-      propertyPath: '_shopItemQuantities.Array.data[2]'
-      value: 3
+    - target: {fileID: 3641090748822349957, guid: d9a84bc63914f16438229e68efb6399a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ShopPanelController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641090748822349957, guid: d9a84bc63914f16438229e68efb6399a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8159992151513782625, guid: d9a84bc63914f16438229e68efb6399a, type: 3}
       propertyPath: m_Pivot.x

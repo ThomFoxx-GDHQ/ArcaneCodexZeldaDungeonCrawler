@@ -898,11 +898,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopPanelController
   _shopItemPanelPrefab: {fileID: 5343827834525378794, guid: 2d5b8f901dfe8e54e9d83f4bba17c767, type: 3}
-  _shopItemIDs: 0000000000000000010000000000000000000000
+  _shopItemIDs: 0100000001000000010000000000000000000000
+  _shopItemQuantities: 0200000005000000030000000000000000000000
+  _shopItemCosts: 2d00000032000000000000000000000000000000
   _itemPanel: {fileID: 4613982493684117953}
   _shopNameText: {fileID: 3427394472643792798}
   _totalAmountText: {fileID: 1393322252921685467}
-  _currencyCharater: '?'
+  _currencyCharater: "\u20B2"
+  _purchaseButton: {fileID: 3641090748822349957}
 --- !u!1 &2484540623219699767
 GameObject:
   m_ObjectHideFlags: 0
