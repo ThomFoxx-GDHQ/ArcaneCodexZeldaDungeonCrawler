@@ -23,10 +23,10 @@ public class ShopPanelController : MonoBehaviour
     private void OnEnable()
     {
         _inventoryManager = FindFirstObjectByType<InventoryManager>();
-        PopulateShopItems();
+        /*PopulateShopItems();
         _totalAmountText.text = $"{_currencyCharater}0";
         UpdatePurchaseButton();
-        _purchaseAmounts = new int[5] { 0, 0, 0, 0, 0 };
+        _purchaseAmounts = new int[5] { 0, 0, 0, 0, 0 };*/
     }
 
     private void PopulateShopItems()
@@ -88,20 +88,43 @@ public class ShopPanelController : MonoBehaviour
         if (_inventoryManager.InventoryAmount(_coinID) >= _purchaseTotalAmount)
             _purchaseButton.interactable = true;
         else _purchaseButton.interactable = false;
+        
         if (_purchaseTotalAmount == 0)
             _purchaseButton.interactable = false;
     }
 
     public void MakePurchase()
     {
-        for (int i = 0;i<_purchaseAmounts.Length;i++)
+        for (int i = 0; i < _purchaseAmounts.Length; i++)
         {
             if (_purchaseAmounts[i] > 0)
             {
                 _inventoryManager.AddToInventory(_shopItemIDs[i], _purchaseAmounts[i]);
                 _shopItemQuantities[i] -= _purchaseAmounts[i];
+                _inventoryManager.RemoveFromInventory(_coinID, _purchaseAmounts[i] * _shopItemCosts[i]);
+                UIManager.Instance.UpdateCoins();
+                _purchaseAmounts[i] = 0;
             }
         }
+        PopulateShopItems();
+        //gameObject.SetActive(false);
+    }
+
+    public void SetupShop(int[] ids, int[] quantities, int[] costs)
+    {
+        _shopItemIDs = ids;
+        _shopItemQuantities = quantities;
+        _shopItemCosts = costs;
+
+        PopulateShopItems();
+        _totalAmountText.text = $"{_currencyCharater}0";
+        UpdatePurchaseButton();
+        _purchaseAmounts = new int[5] { 0, 0, 0, 0, 0 };
+    }
+
+    public void ShutDownShop()
+    {
         gameObject.SetActive(false);
+        Destroy(this.gameObject);
     }
 }

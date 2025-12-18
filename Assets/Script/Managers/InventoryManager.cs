@@ -52,6 +52,7 @@ public class InventoryManager : MonoBehaviour
             _playerInventory.Add(id, count);
 
         QuestManager.Instance.CheckQuestsForUpdate(id, count);
+        FindFirstObjectByType<MenuUIManager>(FindObjectsInactive.Include)?.UpdateUI();
     }
 
     public void RemoveFromInventory(int id, int count)

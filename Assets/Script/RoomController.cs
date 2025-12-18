@@ -52,7 +52,7 @@ public class RoomController : MonoBehaviour
             _enemyAi = renderer.GetComponentInParent<BaseEnemyAI>();
             if (_enemyAi != null)
             {
-                Debug.Log("Found EnemyAi");
+                //Debug.Log("Found EnemyAi");
                 _enemyAi.EnableAttack(active);
             }
         }
